@@ -2,8 +2,7 @@ import random
 import os
 import time
 import pyperclip
-import ctypes
-import ctypes.wintypes
+
 
 def updateFile(Data):
     output = "\n".join(Data)
