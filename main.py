@@ -23,7 +23,7 @@ def updateFile(Data):
 
 def escape_special_characters(text):
     # Заменяем специальные символы на экранированные версии
-    return text.replace('&', '^&').replace('|', '^|').replace('<', '^<').replace('>', '^>')
+    return text.replace('&', '^&').replace('|', '^|').replace('<', '^<').replace('>', '^>').replace('%', '^%')
 
 def copy_to_clipboard(text):
     escaped_text = escape_special_characters(text)
