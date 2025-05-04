@@ -2,14 +2,12 @@ import random
 import os
 import time
 
+import pyperclip
+
 import ctypes
 import ctypes.wintypes
 
 import os
-
-
-# Надо будет сделать функцию перезаписи файла а так же автоудаление закладок при их открытии.
-# Измененный файл я буду просто импортировать позже.
 
 
 
@@ -20,23 +18,15 @@ def updateFile(Data):
 
 
 
-
-def escape_special_characters(text):
-    # Заменяем специальные символы на экранированные версии
-    return text.replace('&', '^&').replace('|', '^|').replace('<', '^<').replace('>', '^>').replace('%', '^%')
-
 def copy_to_clipboard(text):
-    escaped_text = escape_special_characters(text)
-    os.system(f'echo {escaped_text}|clip')
-
-
+    pyperclip.copy(text)
 
 
 
 
 while(True):
     try:
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
 
         with open('Recs.txt', 'r', encoding='utf-8') as file:
             content = file.read()
